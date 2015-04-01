@@ -1,0 +1,13 @@
+# Small hello world script with parameterized recipient
+---
+-
+    request: GET /
+    response: "Hello, world!\n"
+-
+    request: GET /?whom=Joe
+    response: "Hello, Joe!\n"
+-
+    request: POST /
+    post_params:
+        whom: Susan
+    response: "Hello, Susan!\n"

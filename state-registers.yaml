@@ -1,0 +1,44 @@
+# Named registers
+---
+-
+    request: POST /
+    post_params:
+        register: alpha
+        value: 1
+    response: 1
+-
+    request: POST /
+    post_params:
+        register: beta
+        value: 2
+    response: 2
+-
+    request: GET /?register=beta
+    response: 2
+-
+    request: POST /
+    post_params:
+        register: death
+    response:
+        status: 503
+        content: /I am dead/
+-
+    request: GET /?register=alpha
+    response: 1
+-
+    request: POST /
+    post_params:
+        register: alpha
+        value: 42
+    response: 42
+-
+    request: GET /?register=alpha
+    response: 42
+-
+    request: GET /?register=not-created-yet
+    response: "unknown register: not-created-yet"
+-
+    request: POST /
+    post_params:
+        register: use-default
+    response: default value

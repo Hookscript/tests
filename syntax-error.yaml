@@ -1,0 +1,5 @@
+# Script containing a syntax error
+---
+creation:
+    status: 500
+    error_message: /exited with code \d+/

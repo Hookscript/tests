@@ -1,0 +1,18 @@
+# Fetch remote content over HTTP
+---
+-
+    request: GET /?protocol=http&file=content.txt
+    response: "content living in the cloud\n"
+-
+    request: GET /?protocol=https&file=content.txt
+    response: "content living in the cloud\n"
+-
+    request: GET /?protocol=http&file=404.txt
+    response:
+        content: "Request to http://storage.googleapis.com/hookscript/404.txt failed"
+        status: 404
+-
+    request: GET /?protocol=https&file=404.txt
+    response:
+        content: "Request to https://storage.googleapis.com/hookscript/404.txt failed"
+        status: 404

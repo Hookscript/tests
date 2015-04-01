@@ -1,0 +1,22 @@
+# Hello world "app" with parameterized recipient
+---
+-
+    request: GET /
+    response:
+        headers:
+            content_type: text/html
+        content: /Hello, world!/
+-
+    request: GET /?whom=Joe
+    response:
+        headers:
+            content_type: text/html
+        content: /Hello, Joe!/
+-
+    request: POST /
+    post_params:
+        whom: Susan
+    response:
+        headers:
+            content_type: text/html
+        content: /Hello, Susan!/

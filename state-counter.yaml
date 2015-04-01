@@ -1,0 +1,11 @@
+# Increment a counter on each request
+---
+-
+    request: GET /
+    response: 1
+-
+    request: GET /
+    response: 2
+-
+    request: GET /
+    response: 3

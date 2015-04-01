@@ -1,0 +1,12 @@
+# scripts that exit with non-zero exit codes
+---
+-
+    request: GET /?try=1
+    response:
+        content: /^Script exited with code [1-9][0-9]*.*Try 1.*/
+        status: 503
+-
+    request: GET /?try=2
+    response:
+        content: /^Script exited with code [1-9][0-9]*.*Try 2.*/
+        status: 503
