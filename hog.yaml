@@ -1,20 +1,20 @@
 # Hog all the resources possible
 ---
--
-    request: GET /?resource=cpu
-    response:
-        status: 503
-        content: /Script consumed too much time/
+# -
+#     request: GET /?resource=cpu
+#     response:
+#         status: 503
+#         content: /Script consumed too much time/
 -
     request: GET /?resource=mem
     response:
         status: 503
         content: /Script exited with code 137[.] Used too much memory?/
--
-    request: GET /?resource=disk
-    response:
-        status: 503
-        content: /Script consumed too much time/
+# -
+#     request: GET /?resource=disk
+#     response:
+#         status: 503
+#         content: /Script consumed too much time/
 -
     request: GET /?resource=output
     response:
