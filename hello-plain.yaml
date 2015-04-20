@@ -1,0 +1,5 @@
+# Small hello world script
+---
+-
+    request: GET /
+    response: "Hello, world!\n"
