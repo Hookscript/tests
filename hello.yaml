@@ -7,7 +7,9 @@
     request: GET /?whom=Joe
     response: "Hello, Joe!\n"
 -
-    request: POST /
+    request:
+        method: POST
+        path: /
     post_params:
         whom: Susan
     response: "Hello, Susan!\n"

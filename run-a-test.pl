@@ -134,10 +134,17 @@ sub normalize_test_spec($raw) {
 
     # desugar HTTP request description
     if ( my $req = $raw->{request} ) {
-        my ( $method, $path ) = $req =~ m{ ^ ([A-Z]+) \s+ (.*) $ }x;
-        $spec->{name}   = $req;
-        $spec->{method} = $method;
-        $spec->{path}   = $path;
+        if ( ref $req ) {
+            $spec->{name}            = $req->{method} . ' ' . $req->{path};
+            $spec->{method}          = $req->{method};
+            $spec->{path}            = $req->{path};
+        }
+        else {
+            my ( $method, $path ) = $req =~ m{ ^ ([A-Z]+) \s+ (.*) $ }x;
+            $spec->{name}   = $req;
+            $spec->{method} = $method;
+            $spec->{path}   = $path;
+        }
     }
 
     # desugar HTTP response description
