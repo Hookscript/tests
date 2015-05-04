@@ -138,6 +138,7 @@ sub normalize_test_spec($raw) {
             $spec->{name}            = $req->{method} . ' ' . $req->{path};
             $spec->{method}          = $req->{method};
             $spec->{path}            = $req->{path};
+            $spec->{request_headers} = $req->{headers};
         }
         else {
             my ( $method, $path ) = $req =~ m{ ^ ([A-Z]+) \s+ (.*) $ }x;
@@ -177,6 +178,11 @@ sub execute_spec($spec) {
         default {
             $req = HTTP::Request->new( $method, $url );
         }
+    }
+
+    # add request headers
+    while ( my ( $field, $value ) = each %{ $spec->{request_headers} } ) {
+        $req->header( $field => $value );
     }
 
     if ( is_running_tests_locally() ) {
